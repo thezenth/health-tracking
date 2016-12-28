@@ -31,5 +31,5 @@ var foodSchema = new Schema({
     vitamin_b12       : Number
 });
 
-var Symptom = mongoose.model('Food', foodSchema);
-var module.exports = Food;
+var Food = mongoose.model('Food', foodSchema);
+module.exports = Food;

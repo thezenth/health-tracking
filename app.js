@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var db = require('./model/db');
+var db = require('./models/db');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

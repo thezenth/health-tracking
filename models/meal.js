@@ -9,5 +9,5 @@ var mealSchema = new Schema({
     }]
 });
 
-var Symptom = mongoose.model('Meal', mealSchema);
-var module.exports = Meal;
+var Meal = mongoose.model('Meal', mealSchema);
+module.exports = Meal;
