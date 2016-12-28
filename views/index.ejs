@@ -7,6 +7,15 @@
   </head>
 
   <body>
+
+    <form>
+      <!-- holy jeez this actually works -->
+      <% for(var i = 0; i<strArray.length; i++) {%>
+        <%= strArray[i] %>: <br>
+        <input type="text" name=<%= strArray[i] %> >
+      <% } %>
+    </form>
+
   </body>
 
 </html>
