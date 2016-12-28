@@ -1,0 +1,4 @@
+{
+  "food_string_values": ["Name", "Description"],
+  "food_number_values": ["Serving Size", "Calories", "Calories From Fat", "Total Fat", "Saturated Fat", "Cholesterol", "Sodium", "Total Carbohydrates", "Dietary Fiber", "Sugars", "Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E", "Vitamin K", "Vitamin B1/Thiamine", "Vitamin B2/Riboflavin", "Vitamin B3/Niacin", "Vitamin B5/Pantothenate", "Vitamin B6/Pyriodoxine", "Vitamin B7/Biotin", "Vitamin B9/Folic Acid", "Vitamin B12/Cobalamins"]
+}

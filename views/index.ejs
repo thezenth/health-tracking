@@ -12,7 +12,12 @@
       <!-- holy jeez this actually works -->
       <% for(var i = 0; i<strArray.length; i++) {%>
         <%= strArray[i] %>: <br>
-        <input type="text" name=<%= strArray[i] %> >
+        <input type="text" name=<%= strArray[i] %> > <br>
+      <% } %>
+
+      <% for(var i = 0; i<numArray.length; i++) {%>
+        <%= numArray[i] %>: <br>
+        <input type="number" name=<%= numArray[i] %> > <br>
       <% } %>
     </form>
 
