@@ -21,6 +21,18 @@
       <% } %>
     </form>
 
+    <form>
+      <!-- holy jeez this actually works -->
+      <% for(var i = 0; i<allFoods.length; i++) {%>
+        <input type="checkbox" name=<%= allFoods[i].name %> value=<%= allFoods[i]._id %> > <%= allFoods[i].name %> <br>
+      <% } %>
+
+      <% for(var i = 0; i<mealDateArray.length; i++) {%>
+        <%= mealDateArray[i] %>: <br>
+        <input type="datetime-local" name=<%= mealDateArray[i] %> > <br>
+      <% } %>
+    </form>
+
   </body>
 
 </html>
