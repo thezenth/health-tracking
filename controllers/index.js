@@ -5,7 +5,7 @@ var fs = require('fs'); // for loading files/dealing with the filesystem
 
 var Food = require('../models/food'); // is this extraneous?
 
-router.use('/users', require('./users'))
+router.use('/foods', require('./foods'))
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -17,8 +17,8 @@ router.get('/', function(req, res) {
       // console.log(data);
       var jsonData = JSON.parse(data);
 
-      Food.find({}, function(err, foods) {
-        res.render('index', { title: 'Express', strArray: jsonData.food_string_values, foodStringNames: jsonData.food_string_value_names, numArray: jsonData.food_number_values, foodNumberNames: jsonData.food_number_value_names, mealDateArray: jsonData.meal_datetime_values, allFoods: foods });
+      Food.find({}, function(err, foundFoods) {
+        res.render('index', { title: 'Express', strArray: jsonData.food_string_values, foodStringNames: jsonData.food_string_value_names, numArray: jsonData.food_number_values, foodNumberNames: jsonData.food_number_value_names, mealDateArray: jsonData.meal_datetime_values, allFoods: foundFoods });
       });
     }
   });
