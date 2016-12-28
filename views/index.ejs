@@ -12,13 +12,15 @@
       <!-- holy jeez this actually works -->
       <% for(var i = 0; i<strArray.length; i++) {%>
         <%= strArray[i] %>: <br>
-        <input type="text" name=<%= strArray[i] %> > <br>
+        <input type="text" name=<%= foodStringNames[i] %> > <br>
       <% } %>
 
       <% for(var i = 0; i<numArray.length; i++) {%>
         <%= numArray[i] %>: <br>
-        <input type="number" name=<%= numArray[i] %> > <br>
+        <input type="number" name=<%= foodNumberNames[i] %> > <br>
       <% } %>
+
+      <input type="submit" formmethod="post" formaction="/">
     </form>
 
     <form>
