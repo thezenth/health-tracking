@@ -1,0 +1,7 @@
+{
+  "food_string_values": ["Name", "Description"],
+  "food_string_value_names": ["name", "description"],
+  "food_number_values": ["Serving Size", "Calories", "Calories From Fat", "Total Fat", "Saturated Fat", "Cholesterol", "Sodium", "Total Carbohydrates", "Dietary Fiber", "Sugars", "Vitamin A", "Vitamin C", "Vitamin D", "Vitamin E", "Vitamin K", "Vitamin B1/Thiamine", "Vitamin B2/Riboflavin", "Vitamin B3/Niacin", "Vitamin B5/Pantothenate", "Vitamin B6/Pyriodoxine", "Vitamin B7/Biotin", "Vitamin B9/Folic Acid", "Vitamin B12/Cobalamins"],
+  "food_number_value_names": ["serving_size", "calories", "calories_from_fat", "total_fat", "saturated_fat", "cholesterol", "sodium", "total_carbs", "dietary_fiber", "sugars", "vitamin_a", "vitamin_c", "vitamin_d", "vitamin_e", "vitamin_k", "vitamin_b1", "vitamin_b2", "vitamin_b3", "vitamin_b5", "vitamin_b6", "vitamin_b7", "vitamin_b9", "vitamin_b12"],
+  "meal_datetime_values": ["Date"]
+}
