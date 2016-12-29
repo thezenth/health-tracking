@@ -3,11 +3,11 @@ var router = express.Router();
 
 var fs = require('fs'); // for loading files/dealing with the filesystem
 
-var Food = require('../models/food'); // is this extraneous?
+//var Food = require('../models/food'); // is this extraneous?
 
 /* GET /foods */
 router.get('/', function(req, res) {
-
+/*
   fs.readFile('./misc.json', function(err, data) { //note: . is used instead of .. because the "reference" directory is the directory that app.js is running in
     if (err) {
       throw err;
@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
         res.render('meals', { title: 'Express', mealDateArray: jsonData.meal_datetime_values, allFoods: foundFoods });
       });
     }
-  });
+  });*/
 });
 
 router.post('/', function(req, res) {
