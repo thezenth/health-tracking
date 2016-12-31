@@ -39,14 +39,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers'));
 
 
-// get the app environment from Cloud Foundry
+/*// get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 
 // start server on the specified port and binding host
 app.listen(appEnv.port, '0.0.0.0', function() {
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
-});
+});*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
