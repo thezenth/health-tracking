@@ -13,14 +13,12 @@ router.use('/searchResult', require('./searchResults'));
 
 /* GET home page. */
 router.get('/', function(req, res) {
-
-
   res.render('index', { title: 'Express' });
 });
 
 router.post('/', function(req, res) {
 
-  var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
+  /*var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
   var query = req.body.foodQuery;
   var searchUrl = `http://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=10&offset=0&api_key=${apiKey}`;
   request(searchUrl, function(err, response, body) {
@@ -31,7 +29,7 @@ router.post('/', function(req, res) {
     } else {
       console.error(response.statusCode);
     }
-  });
+  });*/
 });
 
 module.exports = router;
