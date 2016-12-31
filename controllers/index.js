@@ -25,6 +25,7 @@ router.post('/', function(req, res) {
     if (err) {
       throw err;
     } else if (response.statusCode == 200) {
+      console.dir(body);
       var items = body.list.item;
       var dbNumbers = [];
       for(var i = 0; i<items.length; i++) {
