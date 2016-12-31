@@ -4,5 +4,5 @@ applications:
   instances: 1
   domain: mybluemix.net
   name: Diet Data
-  host: diet-data
+  host: Diet-Data
   disk_quota: 1024M
