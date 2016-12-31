@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// cloud foundry w/ bluemix
+// cfenv provides access to your Cloud Foundry environment
+// for more info, see: https://www.npmjs.com/package/cfenv
+//var cfenv = require('cfenv');
+
 var app = express();
 
 var db = require('./models/db');
