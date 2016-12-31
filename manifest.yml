@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: Health Tracking
-  host: health-tracking
+  name: Diet Tracking
+  host: diet-tracking
   disk_quota: 1024M
