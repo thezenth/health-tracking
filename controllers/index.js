@@ -9,7 +9,7 @@ var request = require('request');
 
 router.use('/foods', require('./foods'))
 router.use('/meals', require('./meals'))
-router.use('/searchResult', require('./searchResults'));
+//router.use('/searchResult', require('./searchResults'));
 
 /* GET home page. */
 router.get('/', function(req, res) {
