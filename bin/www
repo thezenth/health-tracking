@@ -18,6 +18,7 @@ var cfenv = require('cfenv');
 var port =  (process.env.VCAP_APP_PORT || 3000);//cfenv.getAppEnv().port; //normalizePort(process.env.PORT || '3000');
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 app.set('port', port);
+app.set('host', host);
 
 /**
  * Create HTTP server.
