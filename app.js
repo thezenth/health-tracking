@@ -15,7 +15,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var db = require('./models/db');
+//var db = require('./models/db');
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
