@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: Diet Data
-  host: Diet-Data
+  name: Health Data
+  host: Health-Data
   disk_quota: 1024M
