@@ -26,8 +26,9 @@ router.post('/', function(req, res) {
     if (err) {
       throw err;
     } else if (response.statusCode == 200) {
-      console.dir(body);
-      var items = body.list.item;
+      // JESUS CHRIST I FORGOT TO ACTUALLY PARSE THE BODY
+      var parsedBody = JSON.parse(body);
+      var items = parsedBody.list.item;
       var dbNumbers = [];
       for(var i = 0; i<items.length; i++) {
         dbNumbers.push(items[i].ndbno);
