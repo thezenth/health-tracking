@@ -20,7 +20,8 @@ router.post('/', function(req, res) {
 
   var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
   var query = req.body.foodQuery;
-  var searchUrl = `http://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=10&offset=0&api_key=${apiKey}`;
+  var searchUrl = `http://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=10&offset=0&api_key=${apiKey}`
+  console.log(`USDA API QUERY URL: ${searchUrl}`);
   request(searchUrl, function(err, response, body) {
     if (err) {
       throw err;
