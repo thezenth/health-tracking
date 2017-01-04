@@ -30,7 +30,11 @@ router.post('/', function(req, res) {
       var parsedBody = JSON.parse(body);
       var items = parsedBody.list.item;
       var dbNumbers = [];
+
+      console.dir(`ITMES: ${items}`);
+
       for(var i = 0; i<items.length; i++) {
+        console.log(`FOUND NDBNO: ${items[i].ndbno}`)
         dbNumbers.push(items[i].ndbno);
 
         // wait till it gets through everything to build query string and redirect
