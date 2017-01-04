@@ -6,7 +6,7 @@ var request = require('request');
 // GET /results
 router.get('/', function(req, res) {
   // Get list of USDA database IDs from the query string
-  var foodIds = req.query.items;
+  var foodIds = req.query.items.split(','); // Make sure to turn it into an array!
 
   // array to be filled with food objects
   var foodItems = [];
