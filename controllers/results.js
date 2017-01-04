@@ -20,6 +20,7 @@ router.get('/', function(req, res) {
 
     request(url, function(err, response, body) {
       var parsedBody = JSON.parse(body);
+      console.dir(parsedBody.report.foods[0]);
       foodItems.push(parsedBody.report.foods[0]);
 
       // once we have iterated through foodIds, we can render the page
