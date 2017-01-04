@@ -3,6 +3,8 @@ var router = express.Router();
 
 var request = require('request');
 
+var async = require('async');
+
 // GET /results
 router.get('/', function(req, res) {
   // Get list of USDA database IDs from the query string
@@ -12,30 +14,39 @@ router.get('/', function(req, res) {
   // array to be filled with food objects
   var foodItems = [];
 
-  // Grab each food object according to it's ID in the Database
-  for (var i = 0; i<foodIds.length; i++) {
+  // Grab each food object according to it's ID in the database
+  async.each(foodIds, function(dbN, callback) {
+    console.log(`Grabbing food #${dbN}`);
 
     var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
-    var url = `http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=${apiKey}&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=${foodIds[i]}`
+    var url = `http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=${apiKey}&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=${dbN}`
+
+    request(url, function(err, response, body) {
+      var parsedBody = JSON.parse(body);
+      //console.dir(parsedBody.report.foods[0]);
+      foodItems.push(JSON.stringify(parsedBody.report.foods[0]));
+      callback();
+    }); // end request
+  }, function(err) {
+    if (err) {
+      console.log('A request to grab a food object failed.');
+    } else {
+      console.log('Successfully grabbed all nutrition information. Rendering /results...');
+      res.render('results', { title: 'Results', foodItems: foodItems });
+    }
+  });
+
+
+
+  foodIds.forEach(function(dbN) {
+
     console.log(`URL: ${url}`);
 
     console.log(`ITERATION: ${i}`);
 
-    request(url, function(err, response, body) {
-      var parsedBody = JSON.parse(body);
-      console.dir(parsedBody.report.foods[0]);
-      foodItems.push(JSON.stringify(parsedBody.report.foods[0]));
 
-      // once we have iterated through foodIds, we can render the page
-      // as well, we place this within in the request function in order to ensure that the request completes before we render the page
-      if (i == foodIds.length - 1) {
-        console.log("HELLO");
-        res.render('results', { title: "Results from the USDA Database", foodItems: foodItems });
-      }
-    }); // end request
-  } //end for loop
-
-});
+  }); // end for loop
+}); // end router.get
 
 // POST /results
 /*
