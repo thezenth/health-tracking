@@ -7,9 +7,10 @@ var request = require('request');
 
 //var Food = require('../models/food'); // is this extraneous?
 
-router.use('/foods', require('./foods'))
-router.use('/meals', require('./meals'))
+//router.use('/foods', require('./foods'))
+//router.use('/meals', require('./meals'))
 //router.use('/searchResult', require('./searchResults'));
+router.use('/results', require('./results'));
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -40,8 +41,10 @@ router.post('/', function(req, res) {
         // wait till it gets through everything to build query string and redirect
         if(i == items.length - 1) {
           console.log(dbNumbers);
-          //var queryString = "?items=" + dbNumbers.toString();
-          //res.redirect('/searchResults' + queryString);
+
+          // Build query string and redirect to results page
+          var queryString = "?items=" + dbNumbers.toString();
+          res.redirect('/results' + queryString);
         }
       }
     } else {
