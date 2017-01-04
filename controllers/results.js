@@ -7,6 +7,7 @@ var request = require('request');
 router.get('/', function(req, res) {
   // Get list of USDA database IDs from the query string
   var foodIds = req.query.items.split(','); // Make sure to turn it into an array!
+  console.log(foodIds);
 
   // array to be filled with food objects
   var foodItems = [];
@@ -18,6 +19,8 @@ router.get('/', function(req, res) {
     var url = `http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=${apiKey}&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=${foodIds[i]}`
     console.log(`URL: ${url}`);
 
+    console.log(`ITERATION: ${i}`);
+
     request(url, function(err, response, body) {
       var parsedBody = JSON.parse(body);
       console.dir(parsedBody.report.foods[0]);
@@ -26,7 +29,6 @@ router.get('/', function(req, res) {
       // once we have iterated through foodIds, we can render the page
       // as well, we place this within in the request function in order to ensure that the request completes before we render the page
       if (i == foodIds.length - 1) {
-        console.log(`ITERATION: ${i}`);
         res.render('results', { title: "Results from the USDA Database", foodItems: foodItems });
       }
     }); // end request
