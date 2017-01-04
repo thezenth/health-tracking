@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 
     var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
     var url = `http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=${apiKey}&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=${dbN}`
-
+    console.log(`URL: ${url}`);
     request(url, function(err, response, body) {
       var parsedBody = JSON.parse(body);
       //console.dir(parsedBody.report.foods[0]);
