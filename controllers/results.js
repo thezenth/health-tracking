@@ -14,6 +14,7 @@ router.get('/', function(req, res) {
   // Grab each food object according to it's ID in the Database
   for (var i = 0; i<foodIds.length; i++) {
 
+    var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
     var url = `http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=${apiKey}&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=${foodIds[i]}`
     console.log(`URL: ${url}`);
 
