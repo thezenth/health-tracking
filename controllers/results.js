@@ -26,6 +26,7 @@ router.get('/', function(req, res) {
       // once we have iterated through foodIds, we can render the page
       // as well, we place this within in the request function in order to ensure that the request completes before we render the page
       if (i == foodIds.length - 1) {
+        console.log(`ITERATION: ${i}`);
         res.render('results', { title: "Results from the USDA Database", foodItems: foodItems });
       }
     }); // end request
