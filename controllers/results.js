@@ -38,17 +38,6 @@ router.get('/', function(req, res) {
       res.render('results', { title: 'Results', foodItems: foodItems });
     }
   });
-
-
-
-  foodIds.forEach(function(dbN) {
-
-    console.log(`URL: ${url}`);
-
-    console.log(`ITERATION: ${i}`);
-
-
-  }); // end for loop
 }); // end router.get
 
 // POST /results
