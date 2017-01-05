@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
     console.log(`URL: ${url}`);
     request(url, function(err, response, body) {
       console.log(`PARSING @ URL: ${url}`);
-      console.log(`RESPONSE: ${response}`);
+      console.log(`RESPONSE CODE: ${response.statusCode}`);
       var parsedBody = JSON.parse(body);
       //console.dir(parsedBody.report.foods[0]);
       foodItems.push(JSON.stringify(parsedBody.report.foods[0]));
