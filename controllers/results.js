@@ -33,6 +33,7 @@ router.get('/', function(req, res) {
     if (err) {
       console.log('A request to grab a food object failed.');
     } else {
+      console.log(`FOOD ITEMS: ${foodItems}`);
       console.log('Successfully grabbed all nutrition information. Rendering /results...');
       res.render('results', { title: 'Results', foodItems: foodItems });
     }
