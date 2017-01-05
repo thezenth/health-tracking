@@ -27,7 +27,7 @@ router.get('/', function(req, res) {
       var parsedBody = JSON.parse(body);
       //console.dir(parsedBody.report.foods[0]);
       foodItems.push(JSON.stringify(parsedBody.report.foods[0]));
-      callback();
+      callback(null);
     }); // end request
   }, function(err) {
     if (err) {
