@@ -30,23 +30,30 @@ router.post('/', function(req, res) {
       // JESUS CHRIST I FORGOT TO ACTUALLY PARSE THE BODY
       var parsedBody = JSON.parse(body);
       var items = parsedBody.list.item;
-      var dbNumbers = [];
 
-      console.dir(`ITMES: ${items}`);
 
-      for(var i = 0; i<items.length; i++) {
-        console.log(`FOUND NDBNO: ${items[i].ndbno}`)
-        dbNumbers.push(items[i].ndbno);
+      if (items.length > 0) {
+        var dbNumbers = [];
 
-        // wait till it gets through everything to build query string and redirect
-        if(i == items.length - 1) {
-          console.log(dbNumbers);
+        for(var i = 0; i<items.length; i++) {
+          console.log(`FOUND NDBNO: ${items[i].ndbno}`)
+          dbNumbers.push(items[i].ndbno);
 
-          // Build query string and redirect to results page
-          var queryString = "?items=" + dbNumbers.toString();
-          res.redirect('/results' + queryString);
+          // wait till it gets through everything to build query string and redirect
+          if(i == items.length - 1) {
+            console.log(dbNumbers);
+
+            // Build query string and redirect to results page
+            var queryString = "?items=" + dbNumbers.toString();
+            res.redirect('/results' + queryString);
+          }
         }
+      } else {
+        // if there are no items returned, redirect to error page
+        res.redirect('/warning?m=no items returned');
       }
+
+
     } else {
       console.error(response.statusCode);
     }
