@@ -7,9 +7,11 @@ var request = require('request');
 
 //var Food = require('../models/food'); // is this extraneous?
 
-router.use('/foods', require('./foods'))
-router.use('/meals', require('./meals'))
+//router.use('/foods', require('./foods'))
+//router.use('/meals', require('./meals'))
 //router.use('/searchResult', require('./searchResults'));
+router.use('/results', require('./results'));
+router.use('/warnings', require('./warnings'));
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -18,18 +20,42 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
 
-  /*var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
+  var apiKey = "FYpMQAWPYLHGPJvmgvtGqNeSStYiFlSgy9Wn3YXC";
   var query = req.body.foodQuery;
-  var searchUrl = `http://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=10&offset=0&api_key=${apiKey}`;
+  var searchUrl = `http://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=10&offset=0&api_key=${apiKey}`
+  console.log(`USDA API QUERY URL: ${searchUrl}`);
   request(searchUrl, function(err, response, body) {
     if (err) {
       throw err;
     } else if (response.statusCode == 200) {
-      res.
+      // JESUS CHRIST I FORGOT TO ACTUALLY PARSE THE BODY
+      var parsedBody = JSON.parse(body);
+
+      if (parsedBody.errors) {
+        console.error(parsedBody.errors.error[0]);
+        res.redirect('/warnings?m=' + parsedBody.errors.error[0].message);
+      } else {
+        var items = parsedBody.list.item;
+        var dbNumbers = [];
+
+        for(var i = 0; i<items.length; i++) {
+          console.log(`FOUND NDBNO: ${items[i].ndbno}`)
+          dbNumbers.push(items[i].ndbno);
+
+          // wait till it gets through everything to build query string and redirect
+          if(i == items.length - 1) {
+            console.log(dbNumbers);
+
+            // Build query string and redirect to results page
+            var queryString = "?items=" + dbNumbers.toString();
+            res.redirect('/results' + queryString);
+          }
+        }
+      } // end error if else
     } else {
       console.error(response.statusCode);
-    }
-  });*/
-});
+    } // end response code if else
+  }); // end request
+}); // end post
 
 module.exports = router;

@@ -15,10 +15,13 @@ var cfenv = require('cfenv');
  * Get port from environment and store in Express.
  */
 
-var port =  (process.env.VCAP_APP_PORT || 3000);//cfenv.getAppEnv().port; //normalizePort(process.env.PORT || '3000');
-var host = (process.env.VCAP_APP_HOST || 'localhost');
+var port =  cfenv.getAppEnv().port; //cfenv.getAppEnv().port; //normalizePort(process.env.PORT || '3000');
+var host = cfenv.getAppEnv().bind;
 app.set('port', port);
 app.set('host', host);
+
+console.log(`PORT: ${port}`);
+console.log(`HOST: ${host}`);
 
 /**
  * Create HTTP server.
