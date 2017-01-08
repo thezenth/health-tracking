@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
     if (err) {
       console.error(err);
     } else {
-      console.log(`BODY: ${body}`);
+      console.dir(`BODY: ${body}`);
       res.render('index', { title: 'Express', dbTest: body});
     }
   });
