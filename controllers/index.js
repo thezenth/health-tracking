@@ -31,8 +31,10 @@ router.post('/', function(req, res) {
       var parsedBody = JSON.parse(body);
       var items = parsedBody.list.item;
 
+      console.log('Checking the number of items...')
 
       if (items.length > 0) {
+        console.log('Found some!');
         var dbNumbers = [];
 
         for(var i = 0; i<items.length; i++) {
@@ -50,6 +52,7 @@ router.post('/', function(req, res) {
         }
       } else {
         // if there are no items returned, redirect to error page
+        console.log("No items returned! Redirecting to /warning.")
         res.redirect('/warning?m=no items returned');
       }
     } else {
