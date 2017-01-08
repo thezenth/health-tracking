@@ -5,6 +5,8 @@ var request = require('request');
 
 var async = require('async');
 
+var health_data = require('../db.js').health_data;
+
 // GET /results
 router.get('/', function(req, res) {
   // Get list of USDA database IDs from the query string
@@ -27,6 +29,16 @@ router.get('/', function(req, res) {
       var parsedBody = JSON.parse(body);
       //console.dir(parsedBody.report.foods[0]);
       foodItems.push(JSON.stringify(parsedBody.report.foods[0]));
+
+      health_data.insert(parsedBody.report.foods[0], function(err, body) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log(body);
+        }
+      });
+
+
       callback(null);
     }); // end request
   }, function(err) {
