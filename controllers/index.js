@@ -52,8 +52,6 @@ router.post('/', function(req, res) {
         // if there are no items returned, redirect to error page
         res.redirect('/warning?m=no items returned');
       }
-
-
     } else {
       console.error(response.statusCode);
     }
