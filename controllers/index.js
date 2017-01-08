@@ -22,7 +22,8 @@ router.get('/', function(req, res) {
     if (err) {
       console.error(err);
     } else {
-      res.render('index', { title: 'Express', dbTest: JSON.parse(body)});
+      console.log(`BODY: ${body}`);
+      res.render('index', { title: 'Express', dbTest: body});
     }
   });
 });
