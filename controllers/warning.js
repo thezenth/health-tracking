@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
   // Get warning message from query string
   var m = req.query.m.toString();
   console.log(m);
-  res.render('warning', { message: m });
+  res.render('warnings', { message: m });
 
 }); // end router.get
 

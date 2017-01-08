@@ -32,7 +32,7 @@ router.post('/', function(req, res) {
 
       if (parsedBody.errors) {
         console.error(parsedBody.errors.error[0]);
-        res.redirect('/warning?m=' + parsedBody.errors.error[0].message);
+        res.redirect('/warnings?m=' + parsedBody.errors.error[0].message);
       } else {
         var items = parsedBody.list.item;
         var dbNumbers = [];
