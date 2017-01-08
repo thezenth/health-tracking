@@ -11,6 +11,7 @@ var request = require('request');
 //router.use('/meals', require('./meals'))
 //router.use('/searchResult', require('./searchResults'));
 router.use('/results', require('./results'));
+router.use('/warnings', require('./warnings'));
 
 /* GET home page. */
 router.get('/', function(req, res) {
