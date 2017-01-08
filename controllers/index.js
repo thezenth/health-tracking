@@ -29,12 +29,12 @@ router.post('/', function(req, res) {
     } else if (response.statusCode == 200) {
       // JESUS CHRIST I FORGOT TO ACTUALLY PARSE THE BODY
       var parsedBody = JSON.parse(body);
-      var items = parsedBody.list.item;
 
-      console.log('Checking the number of items...')
-
-      if (items.length > 0) {
-        console.log('Found some!');
+      if (parsedBody.errors) {
+        console.error(parsedBody.errors.error[0]);
+        res.redirect('/warning?m=' + parsedBody.errors.error[0].message);
+      } else {
+        var items = parsedBody.list.item;
         var dbNumbers = [];
 
         for(var i = 0; i<items.length; i++) {
@@ -50,15 +50,11 @@ router.post('/', function(req, res) {
             res.redirect('/results' + queryString);
           }
         }
-      } else {
-        // if there are no items returned, redirect to error page
-        console.log("No items returned! Redirecting to /warning.")
-        res.redirect('/warning?m=no items returned');
-      }
+      } // end error if else
     } else {
       console.error(response.statusCode);
-    }
-  });
-});
+    } // end response code if else
+  }); // end request
+}); // end post
 
 module.exports = router;
