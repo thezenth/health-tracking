@@ -13,9 +13,18 @@ var request = require('request');
 router.use('/results', require('./results'));
 router.use('/warnings', require('./warnings'));
 
+/* CloudantDB Stuff */
+var db = require('../db.js');
+
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  db.get('health-data', function(err, body) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.render('index', { title: 'Express', dbTest: JSON.parse(body)});
+    }
+  });
 });
 
 router.post('/', function(req, res) {

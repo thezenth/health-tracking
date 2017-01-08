@@ -13,7 +13,8 @@
          "mongoose": "latest",
          "request": "latest",
          "cfenv": "latest",
-         "async": "latest"
+         "async": "latest",
+         "nano": "latest"
        },
        "scripts": {
                "start": "node ./bin/www"
