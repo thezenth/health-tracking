@@ -9,6 +9,6 @@ if (process.env.hasOwnProperty("VCAP_SERVICES")) {
 }
 
 var nano = require('nano')(cloudant.url);
-var db = nano.db.use('health-data');
+var db = nano.db;
 
 module.exports = db;
