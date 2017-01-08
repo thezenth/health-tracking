@@ -14,7 +14,7 @@ router.use('/results', require('./results'));
 router.use('/warnings', require('./warnings'));
 
 /* CloudantDB Stuff */
-var db = require('../db.js');
+var db = require('../db.js').db;
 
 /* GET home page. */
 router.get('/', function(req, res) {
