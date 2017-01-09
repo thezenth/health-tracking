@@ -10,8 +10,8 @@
         var query = document.getElementById("foodQuery").value;
 
         // build URL with query string
-        var url = `http://arogya.mybluemix.net/found-foods?q=${query}`;
-        console.log(`URL: ${url}`)
+        var url = "http://arogya.mybluemix.net/found-foods?q=" + query;
+        console.log("URL: " + url);
         // redirect
         window.location = url;
       }
