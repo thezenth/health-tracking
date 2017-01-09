@@ -7,8 +7,8 @@
   </head>
 
   <body>
-    <% for(var f in foods) { %>
-      <input type="radio" name="selectedFood" value="<%= f %>"> <%= f.name %> <br>
+    <% for(var f = 0; f<foods.length; f++) { %>
+      <input type="radio" name="selectedFood" value="<%= foods[f] %>"> <%= foods[f].name %> <br>
     <% } %>
   </body>
 
