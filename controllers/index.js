@@ -12,6 +12,8 @@ var request = require('request');
 //router.use('/searchResult', require('./searchResults'));
 router.use('/results', require('./results'));
 router.use('/warnings', require('./warnings'));
+router.use('/meal', require('./meal'));
+router.use('/found-foods', require('./found-foods'));
 
 /* CloudantDB Stuff */
 var db = require('../db.js').db;
