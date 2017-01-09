@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= title %></title>
+    <% include ./partials/head.ejs %>
+
+    <script>
+      function redirectWithQuery(){
+        // get the query typed in the box
+        var query = document.getElementById("foodQuery").value;
+
+        // build URL with query string
+        var url = `arogya.mybluemix.net/found-foods?q=${query}`;
+        // redirect
+        window.location = url;
+      }
+
+      function setupNewMeal() {
+
+        /* COOKIE SETUP */
+        // clean out any previous new meals
+        document.cookies.newMeal = {};
+
+        /* DOCUMENT STUFF */
+        // remove add a new meal button
+        var addMealButton = document.getElementById("new-meal_button");
+        addMealButton.outHTML = "";
+        delete addMealButton;
+
+        // add in sea`rch bar for food based upon in document template
+        // clone the template
+        var temp = document.querySelector("#foodSearch");
+        var clone = document.importNode(temp.content, true);
+        // append it to the body
+        document.body.appendChild(clone);
+      }
+    </script>
+  </head>
+
+  <template id="foodSearch">
+    <form>
+      Query: <br>
+      <input id="foodQuery" type="text">
+      <button onclick="redirectWithQuery()">Go!</button>
+    </form>
+  </template>
+
+  <body>
+
+    <!-- Add a new meal -->
+    <button id="new-meal_button" onclick="">Add a Meal</button>
+  </body>
+
+</html>
