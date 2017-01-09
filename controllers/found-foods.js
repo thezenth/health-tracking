@@ -54,7 +54,7 @@ router.get('/', function(req, res) {
               allNutritionInfo.push(JSON.parse(nBody));
 
               // call the callback, and go on to the next item! (or end the loop, as it may be)
-              callback()null;
+              callback(null);
             }
           }); // end request inside async.each
         }, function(err) {
