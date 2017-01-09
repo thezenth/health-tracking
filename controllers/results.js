@@ -28,7 +28,7 @@ router.get('/', function(req, res) {
       console.log(`RESPONSE CODE: ${response.statusCode}`);
       var parsedBody = JSON.parse(body);
       //console.dir(parsedBody.report.foods[0]);
-      foodItems.push(JSON.stringify(parsedBody.report.foods[0]));
+      foodItems.push(parsedBody.report.foods[0]);
 
       health_data.insert(parsedBody.report.foods[0], function(err, body) {
         if (err) {
