@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('health-tracking:server');
 var http = require('http');
+var io = require('socket.io')(app);
 
 // cloud foundry
 var cfenv = require('cfenv');

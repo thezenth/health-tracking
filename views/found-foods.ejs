@@ -7,9 +7,12 @@
   </head>
 
   <body>
-    <% for(var f = 0; f<foods.length; f++) { %>
-      <input type="radio" name="selectedFood" value="<%= foods[f] %>"><%= foods[f].name %><br>
-    <% } %>
+    <form>
+      <% for(var f = 0; f<foods.length; f++) { %>
+        <input type="radio" name="selectedFood" value="<%= foods[f] %>"><%= foods[f].name %><br>
+      <% } %>
+      <input type="submit" formmethod="post" formaction="\">
+    </form>
   </body>
 
 </html>

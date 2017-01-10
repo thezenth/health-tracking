@@ -7,7 +7,7 @@ var request = require('request');
 
 var async = require('async');
 
-/* GET /meal */
+/* GET /found-foods */
 router.get('/', function(req, res) {
 
   // get the food query from the query string
@@ -67,6 +67,17 @@ router.get('/', function(req, res) {
       } // end if-else for first request (check for body errors)
     } // end if-else for first request (status code)
   }); // end request
-});
+}); // end GET
+
+/* POST /found-foods */
+router.post('/', function(req, res) {
+
+  // get the chosen food from the submitted form
+  var chosenFood = req.body.selectedFood;
+
+  // add it to the foods array of the new meal
+  
+
+}); // end GET
 
 module.exports = router;

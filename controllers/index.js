@@ -10,10 +10,10 @@ var request = require('request');
 //router.use('/foods', require('./foods'))
 //router.use('/meals', require('./meals'))
 //router.use('/searchResult', require('./searchResults'));
-router.use('/results', require('./results'));
-router.use('/warnings', require('./warnings'));
-router.use('/meal', require('./meal'));
-router.use('/found-foods', require('./found-foods'));
+//router.use('/results', require('./results'));
+//router.use('/warnings', require('./warnings'));
+//router.use('/meal', require('./meal'));
+//router.use('/found-foods', require('./found-foods'));
 
 /* CloudantDB Stuff */
 var db = require('../db.js').db;
