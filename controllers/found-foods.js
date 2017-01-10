@@ -51,7 +51,7 @@ router.get('/', function(req, res) {
               console.error(nErr);
             } else {
               // parse the body and push it to the nutrition array
-              allNutritionInfo.push(JSON.parse(nBody.report.foods[0]));
+              allNutritionInfo.push(JSON.parse(nBody).report.foods[0]);
 
               // call the callback, and go on to the next item! (or end the loop, as it may be)
               callback(null);
